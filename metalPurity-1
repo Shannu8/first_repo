@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+struct cuboid
+{
+	char metaltype[20];
+	float length;
+	float breadth;
+	float height;
+	float mass;
+	float accurate_density;
+};
+float getvolume(float l,float b,float h)
+{
+	float v =l*b*h;
+	return v;
+}
+float getdensity(float m,float v)
+{
+	float d=m/v;
+	return d;
+}
+void determinepurity(struct cuboid c)
+{
+	float v=getvolume(c.length,c.breadth,c.height);
+	float d = getdensity(c.mass,v);
+	if(d==c.accurate_density)
+		cout<<"Metal "<<c.metaltype<<" is Pure!\n";
+	else	cout<<"Metal "<<c.metaltype<<" is Not Pure!\n";
+}
+
+int main(){
+	cuboid c1 = {"Silver",10,9.5,2.8,2793,10.5};
+	cuboid c2 = {"Gold",7.1,5.8,9.1,7103,19.3};
+	cuboid c3 = {"Platinum",10,9.5,2.8,5400,21.4};
+	determinepurity(c1);
+	determinepurity(c2);
+	determinepurity(c3);
+	return 0;
+}
