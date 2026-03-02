@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int m=50;
+class items{
+		int itemcode[m];
+		float itemprice[m];
+		int count;
+	public:
+		void CNT(void){count = 0;}
+		void getitem(void);
+		void displaysum(void);
+		void remove(void);
+		void dislayitems(void);	
+};
+void items::getitem(void){
+	cout<<"Enter the Item code :  ";
+	cin>>itemcode[count];
+	cout<<"Enter the Item cost :  ";
+	cin>>itemprice[count];
+	count++;
+}
+void items::displaysum(void){
+	float sum = 0;
+	for(int i = 0;i<count;i++)
+		sum = sum+itemprice[i];
+	cout<<"\n Total Value :  "<<sum<<"\n";
+}
+void items::remove(void){
+	int a;
+	cout<<"Enter the Item Code :  ";
+	cin>>a;
+	for(int i = 0;i<count;i++)
+		if(itemcode[i] == a){
+			itemprice[i]=0;
+			itemcode[i]=0;
+		}
+}
+void items::dislayitems(void){
+	cout<<"\nCode	Price\n";
+	for(int i=0;i<count;i++){
+		cout<<"\n"<<itemcode[i];
+		cout<<"\t"<<itemprice[i];
+	}
+	cout<<"\n";
+}
+
+
+int main(){
+	items order;
+	order.CNT();
+	int x;
+	do{
+			cout<<"\nYou can do the Following ; Enter the appropriate Number: \n";
+			cout<<"\n1: Add an Item ";
+			cout<<"\n2: Display total value ";
+			cout<<"\n3: Delete an Item ";
+			cout<<"\n4: Dispaly all Items ";
+			cout<<"\n5: Quit ";
+			cout<<"\n Enter Your Option :  ";
+			
+			cin>>x;
+			
+			switch(x){
+					case 1 : order.getitem();break;
+					case 2 : order.displaysum();break;
+					case 3 : order.remove();break;
+					case 4 : order.dislayitems();break;
+					case 5 : break;
+					default : cout<<"\nEnter a valid choice\n";
+					}
+	} while(x!=5);
+	return 0;
+}
