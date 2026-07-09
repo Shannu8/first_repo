@@ -1,3 +1,4 @@
+//Program to check the metal purity 
 #include<iostream>
 using namespace std;
 struct cuboid
