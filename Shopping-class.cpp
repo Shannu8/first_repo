@@ -1,4 +1,4 @@
-//shopping kart using class 1
+//shopping kart using class
 #include<bits/stdc++.h>
 using namespace std;
 const int m=50;
